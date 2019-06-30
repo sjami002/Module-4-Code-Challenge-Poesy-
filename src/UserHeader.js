@@ -1,13 +1,17 @@
-import React from 'react';
+import React from "react";
 
 class UserHeader extends React.Component {
-  render(){
+  handleClick = () => {
+    this.props.userLogout();
+  };
+
+  render() {
     return (
       <div className="user-header">
-        <h3>Welcome, {/* username */}!</h3>
-        <button>Logout</button>
+        <h3>Welcome, {this.props.username}!</h3>
+        <button onClick={this.handleClick}>Logout</button>
       </div>
-    ); 
+    );
   }
 }
 

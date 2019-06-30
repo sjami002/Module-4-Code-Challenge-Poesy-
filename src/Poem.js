@@ -1,14 +1,27 @@
-import React from 'react';
+import React from "react";
 
 class Poem extends React.Component {
-  render(){
+  state = {
+    click: false
+  };
+
+  handleColor = event => {
+    this.setState({
+      click: !this.state.click
+    });
+  };
+
+  render() {
     return (
-      <div style={{color: "black"}}>
-        <h3>Title</h3>
-        <p>Content</p>
-        <strong>- By Author</strong>
+      <div
+        style={this.state.click ? { color: "plum" } : { color: "black" }}
+        onClick={this.handleColor}
+      >
+        <h3>{this.props.poem.title}</h3>
+        <p>{this.props.poem.content}</p>
+        <strong>- {this.props.poem.author}</strong>
       </div>
-    ); 
+    );
   }
 }
 
